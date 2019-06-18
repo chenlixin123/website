@@ -36,12 +36,16 @@
 </template>
 
 <script>
+import axios from "@/lib/api.request";
+import Cookies from "js-cookie";
+import Url from "@/lib/url";
 export default {
     data(){
         return{
             data:'',
             phones:'',
             passwords:'',
+            passwords_length:'',
             confirm_passwords:'',
             err_text:'',
             show:false,
@@ -63,6 +67,12 @@ export default {
             }else if(that.passwords == ''){
                 that.show = true,
                 that.err_text = '密码不能为空'
+            }else if(that.passwords_length < 6){
+                 that.show = true,
+                that.err_text = '密码不能少于6位'
+            }else if(that.passwords_length > 8){
+                that.show = true,
+                that.err_text = '密码不能大于8位'
             }else if(that.confirm_passwords == ''){
                 that.show = true,
                 that.err_text = '确认密码不能为空'
@@ -70,7 +80,27 @@ export default {
                 that.show = true,
                 that.err_text = '输入密码不一致'
             }else{
-                alert('开始注册')
+                console.log(that.phones,that.passwords)
+                axios.request({
+                    method:'post',
+                    url:Url.url.logon,
+                    params:{
+                        mobile:that.phones,
+                        password :that.passwords
+                    }
+                }).then(res => {
+                    if(res.status == false || res.data == false){
+                         that.show = true,
+                         that.err_text = res.message.content
+                    }else{
+                         that.show = true,
+                         that.err_text = '注册成功'
+                         that.loginShow = true,
+                         that.phones = '',
+                         that.passwords = '',
+                         that.confirm_passwords = ''
+                    }
+                })
             }
         },
         // 登录
@@ -86,8 +116,36 @@ export default {
             }else if(that.passwords == ''){
                 that.show = true,
                 that.err_text = '密码不能为空'
+            }else if(that.passwords_length < 6){
+                 that.show = true,
+                that.err_text = '密码不能少于6位'
+            }else if(that.passwords_length > 8){
+                that.show = true,
+                that.err_text = '密码不能大于8位'
             }else{
-                alert('开始登录')
+                  axios.request({
+                    method:'post',
+                    url:Url.url.login,
+                    params:{
+                        mobile:that.phones,
+                        password :that.passwords
+                    }
+                }).then(res => {
+                    console.log(res)
+                    if(res.status == false){
+                         that.show = true,
+                         that.err_text = res.message.content
+                    }else{
+                        //  that.show = true,
+                        //  that.err_text = '登录成功'
+                         that.phones = '',
+                         that.passwords = '',
+                         sessionStorage.setItem('phone',res.data)
+                         that.$router.push({
+                             path:'/'
+                         })
+                    }
+                })
             }
             
         },
@@ -116,7 +174,8 @@ export default {
         password(e){
             let that = this
             that.passwords = e.target.value
-             console.log(e.target.value)
+            that.passwords_length = e.target.value.length
+             console.log(e.target.value.length)
         },
         // 确认密码
         confirm_password(e){

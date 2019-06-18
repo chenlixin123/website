@@ -219,7 +219,7 @@ export default {
 //  点击登录
  login(){
    let that = this
-   sessionStorage.setItem('phone','15503062257')
+  //  sessionStorage.setItem('phone','15503062257')
    that.$router.push({
      path:'/login'
    })
