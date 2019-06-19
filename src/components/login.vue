@@ -8,8 +8,11 @@
             </div>
         </div>
         <div class="center">
+            <div class="img">
+                 <img src="@/assets/img/beijing@2x.png" alt="" width="100%" height="100%">
+            </div>
             <div class="centers">
-                    <img src="../assets/img/baibeijing@3x.png" alt="">
+                    <img src="@/assets/img/baibeijing@3x.png" alt="">
                     <div class="text" v-if="loginShow == true">
                         <input class="user" type="number" @input="phone" oninput="if(value.length>11)value=value.slice(0,11)" :value="phones"  placeholder="请输入手机号">
                         <img class="user_icon" src="@/assets/img/zhanghao@3x.png" alt="">
@@ -116,12 +119,6 @@ export default {
             }else if(that.passwords == ''){
                 that.show = true,
                 that.err_text = '密码不能为空'
-            }else if(that.passwords_length < 6){
-                 that.show = true,
-                that.err_text = '密码不能少于6位'
-            }else if(that.passwords_length > 8){
-                that.show = true,
-                that.err_text = '密码不能大于8位'
             }else{
                   axios.request({
                     method:'post',
@@ -138,9 +135,9 @@ export default {
                     }else{
                         //  that.show = true,
                         //  that.err_text = '登录成功'
+                         sessionStorage.setItem('phone',res.data)
                          that.phones = '',
                          that.passwords = '',
-                         sessionStorage.setItem('phone',res.data)
                          that.$router.push({
                              path:'/'
                          })
@@ -195,11 +192,12 @@ export default {
 <style lang="scss" scoped>
     .box{
         width: 100%;
+        height: 87.2%;
         // box-sizing: border-box;
         // padding-top: 56px;
         .title{
             width: 100%;
-            height: 56px;
+            height: 45px;
             margin: 0 auto;
             display: flex;
             box-sizing: border-box;
@@ -211,7 +209,7 @@ export default {
             // left: 0;
             background: white;
             img{
-                width: 20%;
+                width: 17%;
             }
             .tap{
                 width: 5%;
@@ -231,13 +229,21 @@ export default {
         }
         .center{
             width: 100%;
-            height: 400px;
-            background:url(../assets/img/beijing@3x.png) no-repeat;
+            height: 100%;
+            // background:url('../assets/img/beijing@3x.png') no-repeat;
             box-sizing: border-box;
-            padding-top: 55px;
+            padding-top: 40px;
+            position: relative;
+            .img{
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                top: 0;
+                left: 0;
+            }
             .centers{
             width: 70%;
-            height: 300px;
+            height: 250px;
             margin: 0 auto;
             position: relative;
             img{

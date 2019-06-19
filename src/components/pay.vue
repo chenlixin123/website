@@ -102,11 +102,11 @@ export default {
                 that.show = true,
                 that.err_text = '请输入正确的手机号'
             }else{
-                 window.location.href = 'https://www.baidu.com/'
+                 window.location.href = 'https://www.diudiudidu.com/'
             }
         },
         img(){
-                 window.location.href = 'https://www.baidu.com/'
+                 window.location.href = 'https://www.diudiudiud.com/'
         },
          // 取消弹出框
         cancel(){
@@ -123,14 +123,14 @@ export default {
         height: 100%;
         .title{
             width: 100%;
-            height: 54px;
+            height: 45px;
             display: flex;
             justify-content: flex-start;
             align-items: center;
             box-sizing: border-box;
             padding: 0 15%;
             img{
-                width: 8%;
+                width: 6%;
             }
             div{
                 font-size: 13px;
@@ -146,24 +146,24 @@ export default {
             padding: 20px 0;
             .company{
                 width: 70%;
-                height: 54px;
+                height: 35px;
                 margin: 0 auto;
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
                 .company_name{
                     width: 70%;
-                    height: 54px;
+                    height: 100%;
                     text-align: center;
-                    line-height: 54px;
+                    line-height: 35px;
                     background: #fdf7f4;
                     border: 1px solid #d6d5d5;
-                    font-size: 13px;
+                    font-size: 11px;
                     font-weight: 540;
                 }
                 .many{
                      width: 30%;
-                    height: 54px;
+                    height: 100%;
                     display: flex;
                     justify-content: center;
                     align-items: center;
@@ -171,12 +171,12 @@ export default {
                     border: 1px solid #d6d5d5;
                     cursor: pointer;
                     .number{
-                        font-size:23px;
+                        font-size:20px;
                         color: #f66913;
                         font-size: bold;
                     }
                     .text{
-                        font-size: 13px;
+                        font-size: 11px;
                         color: #666;
                     }
                 }
@@ -185,11 +185,11 @@ export default {
                 width: 70%;
                 height: 200px;
                 margin: 0 auto;
-                margin-top: 30px;
+                margin-top: 20px;
                 border-top: 1.1px solid #cacaca;
                 .bank_title{
                     width: 100%;
-                    height: 50px;
+                    height: 30px;
                     display: flex;
                     .left{
                         width: 25%;
@@ -199,12 +199,12 @@ export default {
                         justify-content: center;
                         align-items: center;
                         img{
-                            width: 25%;
-                            height: 40%;
+                            width: 15%;
+                            height: 45%;
                             margin-right: 5px;
                         }
                         .text{
-                            font-size: 10px;
+                            font-size: 8px;
                             color: #333;
                         }
                     }
@@ -256,7 +256,7 @@ export default {
                         width: 100%;
                         height: 60%;
                         // border: 1px solid;
-                        margin-top: 20px;
+                        margin-top: 10px;
                         display: flex;
                         justify-content: space-between;
                         align-items: center;
@@ -268,16 +268,13 @@ export default {
                             cursor: pointer;
                             // border: 1px solid red;
                         }
-                        // img:hover{
-                               
-                        //     }
                     }
                 }
             }
              .bottom{
             width: 70%;
             margin: 0 auto;
-            margin-top: 20px;
+            margin-top: 10px;
            box-sizing: border-box;
            padding: 21px 21px;
            background: #f8e1d4;
