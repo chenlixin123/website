@@ -209,7 +209,8 @@ export default {
             // left: 0;
             background: white;
             img{
-                width: 17%;
+                width: 15%;
+                // margin-top: 13px;
             }
             .tap{
                 width: 5%;
